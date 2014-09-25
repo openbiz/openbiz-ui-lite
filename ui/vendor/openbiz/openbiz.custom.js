@@ -4,7 +4,7 @@ define(function(){
         if(typeof elem =='undefined'){
             elem = $('body');
         }
-
+ try{
 	    $('.iCheck').each(function(i) {
 		    var  data=$(this).data() ,
 			    input=$(this).find("input") ,
@@ -36,7 +36,7 @@ define(function(){
 			    li.addClass("line");
 		    }
 	    });
-
+}catch(e){}
 
         //////////     MOBILE CHECK    //////////
         var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
@@ -58,10 +58,11 @@ define(function(){
             var self = $(this);
             self.maxlength({ bornIn:"#main" });
         });
-
+	
         $(elem).find('.ios-switch .switch').each(function(i) {
             $(this).addClass("ios");
         });
+    try{
         $(elem).find('.ios').each(function(i,elem){
             if(!$(elem).hasClass('has-switch')){
                 $(elem).bootstrapSwitch();
@@ -69,6 +70,7 @@ define(function(){
         })
         $(elem).find('.ios').bootstrapSwitch('setOnLabel', '');
         $(elem).find('.ios').bootstrapSwitch('setOffLabel', '');
-    }
+    }catch(e){}
+}
 
 });
